@@ -1,13 +1,13 @@
 import 'dart:async';
 import 'dart:convert';
 import 'package:coselig_front/general_page.dart';
+import 'package:coselig_front/pages/menu.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:syncfusion_flutter_pdfviewer/pdfviewer.dart';
+
 class WelcomePage extends StatefulWidget {
-  const WelcomePage({
-    super.key,
-  });
+  const WelcomePage({super.key});
 
   @override
   State<WelcomePage> createState() => _WelcomePageState();
@@ -106,8 +106,6 @@ class _WelcomePageState extends State<WelcomePage>
     }
   }
 
-
-
   @override
   void dispose() {
     _timer?.cancel();
@@ -184,7 +182,7 @@ class _WelcomePageState extends State<WelcomePage>
     //智能方案流程
     //居家智能提案
     //商業空間智能提案
-}
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -192,6 +190,17 @@ class _WelcomePageState extends State<WelcomePage>
     final primaryColor = theme.colorScheme.primary;
 
     return GeneralPage(
+      actions: [
+        IconButton(
+          onPressed: () {
+            Navigator.push(
+              context,
+              MaterialPageRoute(builder: (context) => const Menu()),
+            );
+          },
+          icon: const Icon(Icons.menu),
+        ),
+      ],
       children: [
         Stack(
           children: [
